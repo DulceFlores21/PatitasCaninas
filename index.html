@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="estilo.css">
+        <title>Patitas Caninas</title>
+    </head>
+    <body>
+        <form id="login">
+            <center>
+                <img src="images/patitas.png" alt="" width="250px">
+            </center>
+            <input type="text" id="username" placeholder="Introduzca el usuario">
+            <input type="password" id="password" placeholder="Introduzca la contraseña">
+            <input type="submit" value="Iniciar sesión">
+        </form>
+
+        <script>
+            const usernames = [
+                { username: "Dulce", password: "123" },
+                { username: "username", password: "1234" },
+            ];
+            document.getElementById("login").addEventListener("submit", function(event) {
+                event.preventDefault();
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+                const user = usernames.find(u => u.username === username && u.password === password);
+
+                if (user) {
+                    window.location.href = "Inicio_Patitas.html";
+                } else {
+                    alert("Credenciales incorrectas. Inténtalo de nuevo.");
+                }
+            });
+        </script>
+
+    </body>
+</html>
